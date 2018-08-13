@@ -13,11 +13,8 @@
 #
 
 class Room < ActiveRecord::Base
-  validates :title, presence: true
-  validates :description, presence: true, length: { maximum: 400, too_long: "%{count} characters is the maximum allowed" }
-  validates :beds, presence: true, numericality: {only_integer: true}
-  validates :guests, presence: true, numericality: {only_integer: true}
-  #validates :created_at, presence: true
-  #validates :updated_at, presence: true
-  validates :image_url, presence: true
+	validates :title, :description, :beds, :guests, :image_url, :price_per_night, presence: true
+	validates :description, length: {maximum: 400}
+	validates :beds, numericality: { only_integer: true}
+	validates :guests, numericality: { only_integer: true}
 end
